@@ -17,6 +17,8 @@ public class AddForce2 : MonoBehaviour {
     //private Vector3 latestPos;
     private Vector3 _prevPosition;
 
+    public float charrotate;
+
     //接地判定
     private bool isGround;
 
@@ -37,7 +39,7 @@ public class AddForce2 : MonoBehaviour {
         Rigidbody rb = GetComponent<Rigidbody>();
  
         //Rigidbodyに力を加える
-        rb.AddForce(x*2, 0,z*2);
+        rb.AddForce(x*4, 0,z*4);
 
         // 現在フレームのワールド位置
         var position = _transform.position;
@@ -74,7 +76,7 @@ public class AddForce2 : MonoBehaviour {
         );
         // オブジェクトの回転に反映
 
-        if(rb.velocity.magnitude > 0.5f){
+        if(rb.velocity.magnitude > charrotate){
         _transform.rotation = nextRot;
         }
         
