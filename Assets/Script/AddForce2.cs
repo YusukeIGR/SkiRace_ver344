@@ -17,6 +17,9 @@ public class AddForce2 : MonoBehaviour {
     //private Vector3 latestPos;
     private Vector3 _prevPosition;
 
+    //接地判定
+    private bool isGround;
+
      private void Start()
     {
         _transform = transform;
@@ -36,16 +39,6 @@ public class AddForce2 : MonoBehaviour {
         //Rigidbodyに力を加える
         rb.AddForce(x*2, 0,z*2);
 
-        /*変更点
-        Vector3 diff = transform.position - latestPos;   //前回からどこに進んだかをベクトルで取得
-        latestPos = transform.position;  //前回のPositionの更新
-
-        //ベクトルの大きさが0.01以上の時に向きを変える処理をする
-        if (diff.magnitude > 0.01f)
-        {
-        transform.rotation = Quaternion.LookRotation(diff); //向きを変更する
-        }
-        */
         // 現在フレームのワールド位置
         var position = _transform.position;
 
@@ -84,7 +77,24 @@ public class AddForce2 : MonoBehaviour {
         if(rb.velocity.magnitude > 0.5f){
         _transform.rotation = nextRot;
         }
-        //transform.Rotate(0,Input.GetAxis("Horizontal"),0); //向きを変更する
+        
+        /*ジャンプ処理
+        if(Input.GetKeyDown("space")&& isGround){
+            rb.AddForce(new Vector3(0,2000,0));
+        }
+
+        void OnTriggerStay(Collider other)
+        {
+            if (other.gameObject.name == "Stage" )
+            isGround = true;
+        }
+    
+        void OnTriggerExit(Collider other)
+        {
+            if (other.gameObject.name == "Stage" )
+            isGround = false;
+        }
+        */
         
     }
 }
