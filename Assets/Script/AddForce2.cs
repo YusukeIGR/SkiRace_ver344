@@ -87,9 +87,10 @@ public class AddForce2 : MonoBehaviour {
         _transform.rotation = nextRot;
         }
         //
+        Debug.Log(acNum);
     }
     
-    void OnCollisionEnter(Collision collision){
+    void OnTriggerEnter(Collider collision){
         if(collision.gameObject.CompareTag("Ring")){
             acNum++;
             Destroy(collision.gameObject);
