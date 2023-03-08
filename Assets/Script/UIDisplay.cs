@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class UIDisplay : MonoBehaviour
 {
+    [SerializeField]GameObject clearUI;
     // UI Text指定用
     public Text TextAcNum;
     //リング取得数の変数
@@ -19,7 +20,7 @@ public class UIDisplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+    
     }
 
     // Update is called once per frame
@@ -27,11 +28,14 @@ public class UIDisplay : MonoBehaviour
     {
         Debug.Log(acNum);
         TextAcNum.text=string.Format("{0}",acNum);
+        if(acNum>=20){
+            clearUI.SetActive(true);
+        }
 
     }
     void OnTriggerEnter(Collider collision){
         if(collision.gameObject.CompareTag("Ring")){
-            acNum++;
+            acNum+=20;
             Destroy(collision.gameObject);
         }
     }
