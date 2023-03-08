@@ -35,7 +35,7 @@ public class UIDisplay : MonoBehaviour
     }
     void OnTriggerEnter(Collider collision){
         if(collision.gameObject.CompareTag("Ring")){
-            acNum+=20;
+            acNum++;
             Destroy(collision.gameObject);
         }
     }
