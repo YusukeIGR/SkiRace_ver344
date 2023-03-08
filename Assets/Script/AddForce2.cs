@@ -1,15 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
- 
-public class AddForce2 : MonoBehaviour {
 
-    //リング取得数の変数
-    int acNum=0;
-    //リング取得数get関数
-    public int getAcNum(){
-        return acNum;
-    }
+public class AddForce2 : MonoBehaviour {
+    
     [SerializeField] private Rigidbody _rigidbody;
 
     // 最大の回転角速度[deg/s]
@@ -86,14 +80,8 @@ public class AddForce2 : MonoBehaviour {
         if(rb.velocity.magnitude > charrotate){
         _transform.rotation = nextRot;
         }
-        //
-        Debug.Log(acNum);
+        
     }
     
-    void OnTriggerEnter(Collider collision){
-        if(collision.gameObject.CompareTag("Ring")){
-            acNum++;
-            Destroy(collision.gameObject);
-        }
-    }
+  
 }
