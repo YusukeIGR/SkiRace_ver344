@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CharcterControl : MonoBehaviour
 {
+    /*
     public var AddVector;
     // Start is called before the first frame update
     void Start()
@@ -70,4 +71,5 @@ public class CharcterControl : MonoBehaviour
         }
         // 更に左右の操作を反映      
         rb.MoveRotation(Quaternion.AngleAxis(HAngle, trans.up));
+        */
 }
