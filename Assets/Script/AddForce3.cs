@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class AddForce3 : MonoBehaviour {
     
-    [SerializeField] private Rigidbody _rigidbody;
+    private Rigidbody _rigidbody;
 
     // 最大の回転角速度[deg/s]
-    [SerializeField] private float _maxAngularSpeed = Mathf.Infinity;
+    private float _maxAngularSpeed = Mathf.Infinity;
 
     // 進行方向に向くのにかかるおおよその時間[s]
-    [SerializeField] private float _smoothTime = 0.1f;
+    private float _smoothTime = 0.1f;
 
     private float _currentAngularVelocity;
 
@@ -21,13 +21,17 @@ public class AddForce3 : MonoBehaviour {
     public float charrotate=3;
 
     //接地判定
-    private bool isGround;
+    public bool isJumping;
 
      private void Start()
     {
         _transform = transform;
 
         _prevPosition = _transform.position;
+        
+        isJumping = true;
+
+        
     } 
     //一秒間に一定の回数呼ばれる
     void FixedUpdate()
@@ -51,8 +55,8 @@ public class AddForce3 : MonoBehaviour {
         // 次のUpdateで使うための前フレーム位置更新
         _prevPosition = position;
 
-        // 静止している状態だと、進行方向を特定できないため回転しない
-        if (delta == Vector3.zero)
+        // 静止している状態"もしくは空中にいる間は"、進行方向を特定できないため回転しない
+        if (delta == Vector3.zero || isJumping)
             return;
 
         // 進行方向（移動量ベクトル）に向くようなクォータニオンを取得
@@ -76,12 +80,19 @@ public class AddForce3 : MonoBehaviour {
             rotAngle
         );
         // オブジェクトの回転に反映
-
         if(rb.velocity.magnitude > charrotate){
         _transform.rotation = nextRot;
         }
+
         
     }
+    
+    public void OnCollisionEnter(Collision collision){
+        if(collision.gameObject.CompareTag("Stage")){
+            isJumping = false;
+        }
+    }
+    
     
   
 }
