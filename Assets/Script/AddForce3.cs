@@ -40,7 +40,7 @@ public class AddForce3 : MonoBehaviour {
         Rigidbody rb = GetComponent<Rigidbody>();
  
         //Rigidbodyに力を加える
-        rb.AddForce(x*4, 0,0);
+        rb.AddForce(x*4, 0,z);
 
         // 現在フレームのワールド位置
         var position = _transform.position;
