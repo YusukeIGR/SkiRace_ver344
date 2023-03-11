@@ -5,8 +5,11 @@ using UnityEngine;
 public class CameraController : MonoBehaviour {
 	public Transform player;
 
+	public float frontNum = 10;
+	
+	public float highNum = 10;
 	void LateUpdate () {
-		transform.position = player.position + (-player.forward * 10.0f) + (player.up * 10.0f);
+		transform.position = player.position + (-player.forward * frontNum) + (player.up *highNum);
 		transform.LookAt (player.position+Vector3.up);
 	}
 }
