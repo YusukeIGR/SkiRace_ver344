@@ -28,9 +28,9 @@ public class UIDisplay : MonoBehaviour
     {
         Debug.Log(acNum);
         TextAcNum.text=string.Format("{0}",acNum);
-        if(acNum>=20){
+        /*if(acNum>=20){
             clearUI.SetActive(true);
-        }
+        }*/
 
     }
     void OnTriggerEnter(Collider collision){
