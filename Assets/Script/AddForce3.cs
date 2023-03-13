@@ -23,6 +23,9 @@ public class AddForce3 : MonoBehaviour {
     //接地判定
     public bool isJumping;
 
+     public float addFrontLear=10;
+        public float addLeftRight=10;
+
      private void Start()
     {
         _transform = transform;
@@ -42,9 +45,11 @@ public class AddForce3 : MonoBehaviour {
  
         //Rigidbodyを取得
         Rigidbody rb = GetComponent<Rigidbody>();
- 
+
+       
+        
         //Rigidbodyに力を加える
-        rb.AddForce(x*4, 0,z);
+        rb.AddForce(x*addFrontLear, 0,z*addLeftRight);
 
         // 現在フレームのワールド位置
         var position = _transform.position;
