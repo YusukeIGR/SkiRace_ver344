@@ -4,8 +4,8 @@ using UnityEngine;
  
 public class BallJump : MonoBehaviour
 {
-    public float jumpPower;
-    public float frontPower;
+    public float jumpPower=200;
+    public float frontPower=200;
     private Rigidbody rb;
     private bool isJumping = false; 
  
@@ -18,7 +18,7 @@ public class BallJump : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space)&& ! isJumping)
         {
-            rb.AddForce(0,jumpPower,frontPower);
+            rb.AddRelativeForce(0,jumpPower,frontPower);
             isJumping = true;
         }
     }

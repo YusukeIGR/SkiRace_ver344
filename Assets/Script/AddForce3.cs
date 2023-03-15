@@ -5,40 +5,74 @@ using UnityEngine;
 public class AddForce3 : MonoBehaviour {
     
     private Rigidbody _rigidbody;
-
-    //接地判定
-    public bool isJumping;
+    Vector3 torque;
 
      public float addFrontLear=10;
      public float addLeftRight=10;
 
-     private void Start()
+     public float rotationforce=1;
+     
+
+    void Start()
     {
-        isJumping = true;
+        //Rigidbodyを取得
+        //var rb = GetComponent<Rigidbody>();
+ 
+        //isKinematicをオンにする
+        //rb.isKinematic = true;
     } 
     //一秒間に一定の回数呼ばれる
     void FixedUpdate()
     {
-        // 入力をxとzに代入
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
- 
-        //Rigidbodyを取得
-        Rigidbody rb = GetComponent<Rigidbody>();
-
-       
         
-        //Rigidbodyに力を加える
-        rb.AddForce(x*addFrontLear, 0,z*addLeftRight);
+        //Rigidbodyを取得
+       Rigidbody rb = GetComponent<Rigidbody>();
+
+       //rb.AddRelativeTorque(new Vector3(2000,2000,2000));
+       //if (Input.GetKey (KeyCode.UpArrow) || Input.GetKey (KeyCode.DownArrow)){
+       //     rb.isKinematic = false;
+       //}
+
+       float hori = Input.GetAxis("Horizontal");
+       float vert = Input.GetAxis("Vertical");
+
+        if (Input.GetKey (KeyCode.UpArrow) || Input.GetKey (KeyCode.DownArrow)){
+            rb.AddRelativeForce(0,0,vert*addFrontLear);
+        }
+        if (Input.GetKey (KeyCode.RightArrow) || Input.GetKey (KeyCode.LeftArrow)){
+            //rb.AddForce(hori*addLeftRight,0,0);
+            rb.AddTorque(new Vector3(0,hori*addLeftRight*rotationforce,0));
+        }
+        //rb.AddRelativeTorque(new Vector3(0, hori, -hori) * 2000.0f);
+        //rb.AddRelativeTorque(new Vector3(vert, 0, -vert) * 2000.0f);
+
+        /*トルクを加える
+        rb.AddTorque(torque, ForceMode.Acceleration);
+
+        if (Input.GetKey (KeyCode.RightArrow)){
+            torque = Vector3.back;
+        } 
+        if (Input.GetKey (KeyCode.LeftArrow)){
+            torque = Vector3.forward;
+        }
+        */
+        //if (Input.GetKey (KeyCode.DownArrow)){ 
+        //    rb.AddForce(0,0,hori*addFrontLear);
+        //}
+
+        /*
+        if(Input.GetKey("Horizontal")){
+            rb.AddForce(hori*addFrontLear,0,0);
+        }
+        */
+        //if(Input.GetKey("Vertical")){
+        //    rb.AddForce(0,0,Input.GetAxis("Vertical")*addLeftRight);
+        //}
+        //if(Input.GetKey("Horizontal") && Input.GetKey("Vertical")){
+        //    rb.AddForce(Input.GetAxis("Horizontal")*addFrontLear, 0,Input.GetAxis("Vertical")*addLeftRight);
+        //}
+        
+        //rb.AddForce(hori*addFrontLear, 0,vert*addLeftRight);
+    }
 
     }
-    
-    public void OnCollisionEnter(Collision collision){
-        if(collision.gameObject.CompareTag("Stage")){
-            isJumping = false;
-        }
-    }
-    
-    
-  
-}
