@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000011042068464, guid: 2ebdc32c603c0f74a8df3ff23c55e8e0, type: 3}
       propertyPath: m_Name
-      value: chainlink_group-1 (2)
+      value: chainlink_group-1 (2) Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4000013950294986, guid: 2ebdc32c603c0f74a8df3ff23c55e8e0, type: 3}
       propertyPath: m_RootOrder
@@ -67,15 +67,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 23000012367500464, guid: 2ebdc32c603c0f74a8df3ff23c55e8e0, type: 3}
+    - target: {fileID: 23000012367500464, guid: 2ebdc32c603c0f74a8df3ff23c55e8e0,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 09763219adeda7943ba8b3200fa1ab71, type: 2}
-    - target: {fileID: 23000013261605104, guid: 2ebdc32c603c0f74a8df3ff23c55e8e0, type: 3}
+      objectReference: {fileID: 2100000, guid: 79f65de27179a0b4c8b3fe9746742d1a, type: 2}
+    - target: {fileID: 23000013261605104, guid: 2ebdc32c603c0f74a8df3ff23c55e8e0,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 09763219adeda7943ba8b3200fa1ab71, type: 2}
-    - target: {fileID: 205000012825781400, guid: 2ebdc32c603c0f74a8df3ff23c55e8e0, type: 3}
+      objectReference: {fileID: 2100000, guid: 79f65de27179a0b4c8b3fe9746742d1a, type: 2}
+    - target: {fileID: 205000012825781400, guid: 2ebdc32c603c0f74a8df3ff23c55e8e0,
+        type: 3}
       propertyPath: m_LocalReferencePoint.z
       value: 0.010616228
       objectReference: {fileID: 0}
