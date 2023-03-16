@@ -7,6 +7,9 @@ TagManager:
   - chk
   - PlayerCar
   - AICarCollider
+  - Stage
+  - Ring
+  - Goal
   layers:
   - Default
   - TransparentFX

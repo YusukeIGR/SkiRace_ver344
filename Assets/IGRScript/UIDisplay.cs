@@ -15,22 +15,23 @@ public class UIDisplay : MonoBehaviour
     public int getAcNum(){
         return acNum;
     }
+    private Rigidbody rb;// = gameObject.GetComponent<Rigidbody>();
  
     //private int TextRingCount = AddForce2.acNum;
     // Start is called before the first frame update
     void Start()
     {
-    
+        //rb.velocity = Vector3.zero;
+        //Time.timeScale = 1f;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Time.timeScale = 1f;
         //Debug.Log(acNum);
         TextAcNum.text=string.Format("{0}",acNum);
-        /*if(acNum>=20){
-            clearUI.SetActive(true);
-        }*/
+        
 
     }
     void OnTriggerEnter(Collider collision){
@@ -38,5 +39,11 @@ public class UIDisplay : MonoBehaviour
             acNum++;
             Destroy(collision.gameObject);
         }
+        if(collision.gameObject.CompareTag("Goal")){
+            Time.timeScale = 0f;
+            clearUI.SetActive(true);
+        }
     }
+
+    
 }
