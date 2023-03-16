@@ -7,8 +7,11 @@ using UnityEngine.UI;
 public class UIDisplay : MonoBehaviour
 {
     [SerializeField]GameObject clearUI;
+    
     // UI Text指定用
     public Text TextAcNum;
+    [SerializeField]GameObject TextPerfect;
+
     //リング取得数の変数
     private int acNum=0;
     //リング取得数get関数
@@ -31,12 +34,16 @@ public class UIDisplay : MonoBehaviour
         //Time.timeScale = 1f;
         //Debug.Log(acNum);
         TextAcNum.text=string.Format("{0}",acNum);
+        if(acNum>=61){
+            TextPerfect.SetActive(true);
+        }
+        
         
 
     }
     void OnTriggerEnter(Collider collision){
         if(collision.gameObject.CompareTag("Ring")){
-            acNum++;
+            acNum ++;
             Destroy(collision.gameObject);
         }
         if(collision.gameObject.CompareTag("Goal")){
