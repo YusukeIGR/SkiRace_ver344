@@ -26,7 +26,7 @@ public class UIDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(acNum);
+        //Debug.Log(acNum);
         TextAcNum.text=string.Format("{0}",acNum);
         /*if(acNum>=20){
             clearUI.SetActive(true);
