@@ -6,6 +6,6 @@ public class PauseToReset : MonoBehaviour
 {
     
     public void OnClickStartButton(){
-        SceneManager.LoadScene("IGRTitle");
+        SceneManager.LoadScene("IGRGameScene");
     }
 }
